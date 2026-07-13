@@ -1,14 +1,12 @@
-Set-Content -Path .gitignore -Encoding ascii -Value @(
-'.env',
-'.venv/',
-'logs/',
-'data/',
-'KILL_SWITCH',
-'__pycache__/',
-'*.pyc',
-'.pytest_cache/',
-'test_connection.py',
-'test_execution_quick.py',
-'test_risk_quick.py',
-'test_strategy_quick.py'
-)
+.env
+.venv/
+logs/
+data/
+KILL_SWITCH
+__pycache__/
+*.pyc
+.pytest_cache/
+test_connection.py
+test_execution_quick.py
+test_risk_quick.py
+test_strategy_quick.py
