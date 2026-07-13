@@ -1,0 +1,1 @@
+.env .venv/ logs/ data/ KILL_SWITCH __pycache__/ *.pyc .pytest_cache/ test_connection.py test_*_quick.py
