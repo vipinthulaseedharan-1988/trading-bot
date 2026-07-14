@@ -1,3 +1,4 @@
+import os
 import yfinance as yf
 import pandas as pd
 
@@ -10,6 +11,9 @@ def download_prices(start="2015-01-01"):
     df = raw.stack().rename("close").reset_index()
     df.columns = ["date", "symbol", "close"]
     df = df.sort_values(["symbol", "date"]).reset_index(drop=True)
+
+    # Make sure the data folder exists (important for cloud runs!)
+    os.makedirs("data", exist_ok=True)
     df.to_parquet("data/prices.parquet")   # save for later use
     return df
 
