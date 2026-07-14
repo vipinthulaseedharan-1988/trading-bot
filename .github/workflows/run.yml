@@ -1,0 +1,20 @@
+name: run-trading-bot
+on:
+  schedule:
+    - cron: '17 14 1 * *'   # ~14:17 UTC on the 1st of each month
+  workflow_dispatch:          # lets you run it manually anytime
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python -m src.bot.main
+        env:
+          APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          APCA_API_BASE_URL: https://paper-api.alpaca.markets
+          DRY_RUN: 'true'
