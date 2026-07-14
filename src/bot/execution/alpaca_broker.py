@@ -6,8 +6,8 @@ from alpaca.trading.enums import OrderSide, TimeInForce
 
 load_dotenv()  # read keys from the .env file
 
-KEY = os.getenv("APCA_API_KEY_ID")
-SECRET = os.getenv("APCA_API_SECRET_KEY")
+KEY = (os.getenv("APCA_API_KEY_ID") or "").strip()
+SECRET = (os.getenv("APCA_API_SECRET_KEY") or "").strip()
 DRY_RUN = os.getenv("DRY_RUN", "true").lower() == "true"
 
 # paper=True guarantees we NEVER touch a live account
